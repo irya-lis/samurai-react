@@ -1,0 +1,13 @@
+.dialog a {
+    position: static;
+    color: #242437;
+}
+
+.img {
+    position: sticky;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 17px;
+    margin-top: 5px;
+}

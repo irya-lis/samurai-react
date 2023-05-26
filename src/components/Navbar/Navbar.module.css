@@ -1,0 +1,28 @@
+.nav {
+    grid-area: n;
+    background-color: #adadd6;
+    padding-left: 15px;
+    border-radius: 20px;
+    box-shadow: inset 2px 2px 5px rgb(100, 99, 97), 1px 1px 5px rgb(255, 255, 255);
+}
+
+.item {
+    padding-top: 20px;
+    margin-bottom: 30px;
+}
+
+.item a {
+    position: fixed;
+    color: white;
+    text-decoration: none;
+}
+
+a.activeLink {
+    color: #242437;
+}
+
+
+.friends {
+    margin-top: 100px;
+    height: 200px;
+}

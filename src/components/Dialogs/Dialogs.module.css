@@ -1,0 +1,22 @@
+.dialogs {
+    padding-left: 15px;
+    padding-top: 20px;
+
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+
+.dialogsItems {
+   margin-bottom: 40px;
+
+}
+
+textarea {
+    padding: 20px;
+    box-shadow: inset 2px 2px 5px rgb(100, 99, 97), 1px 1px 5px rgb(255, 255, 255);
+    border-radius: 15px;
+}
+
+.newMessage {
+    margin-top: 200px;
+}
