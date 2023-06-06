@@ -1,0 +1,13 @@
+.selectedPage {
+    font-weight: bold;
+}
+
+.selected span {
+    padding-right: 10px;
+    color: #242437;
+    font-size: 20px;
+}
+
+.prev {
+    margin-right: 10px;
+}

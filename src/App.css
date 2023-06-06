@@ -3,6 +3,8 @@
     width:  1450px ;
     margin: auto;
 
+
+
     grid-template-areas:
      "h h "
      "n c";
@@ -22,4 +24,6 @@
     border-radius: 20px;
     box-shadow: inset 2px 2px 5px rgb(100, 99, 97), 1px 1px 5px rgb(255, 255, 255);
 
+
 }
+

@@ -1,7 +1,12 @@
 .header {
     grid-area: h;
     background-color: #242437;
-    border-radius: 10px;
+    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgb(255, 255, 255);
+    border-radius: 8px;
+    position: sticky;
+    width:  1450px ;
+    top: 0;
+
 
 }
 
@@ -9,7 +14,6 @@
     width: 50px;
     border-radius: 50%;
     margin: 5px 15px;
-    position: fixed;
 
 }
 
@@ -29,3 +33,6 @@
     margin-right: 20px;
 }
 
+.loginBlock button {
+    margin-left: 10px;
+}

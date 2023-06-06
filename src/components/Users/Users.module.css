@@ -43,16 +43,6 @@ h2 {
     padding: 15px;
 }
 
-.selectedPage {
-    font-weight: bold;
-}
-
-.selected span {
-    padding-right: 10px;
-    color: #242437;
-    font-size: 20px;
-}
-
 
 .preload {
     margin-top: 30px;

@@ -2,3 +2,20 @@
     padding-left: 15px;
     padding-top: 20px;
 }
+
+.formSummaryError {
+    display: inline-block;
+    border: 2px solid firebrick;
+    padding: 5px;
+    background-color: darkred;
+    color: #ebebf8;
+    border-radius: 6px;
+}
+
+form.email form.password {
+    padding: 30px;
+    box-shadow: inset 2px 2px 5px rgb(100, 99, 97), 2px 2px 5px rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    background-color: #ebebf8;
+
+}
