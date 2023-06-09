@@ -3,12 +3,12 @@ import s from "./Users.module.css";
 import {NavLink} from "react-router-dom";
 
 
-const User = ({user, followingInProgress, unfollow, follow, ...props}) => {
+const User = ({user, followingInProgress, unfollow, follow}) => {
 
     return (
         <div className={s.user}>
-            <NavLink to={"/profile"}>
-                <img src={user.photos.small !== null ? user.photos.small : "./ava_user2.jpg"}/>
+            <NavLink to={'/profile' + user.id}>
+                <img src={user.photos.small || "./ava_user2.jpg"}/>
             </NavLink>
             <div className={s.button}>
                 {user.followed

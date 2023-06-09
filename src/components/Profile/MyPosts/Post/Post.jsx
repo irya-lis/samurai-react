@@ -10,11 +10,11 @@ const Post = (props) => {
 
     return (
         <div className={s.item}>
-            <img src="/ava.jpeg" alt="ava"/>
+            <img src="./ava.jpeg" alt="ava"/>
             {props.post}
             <div className={s.like}>
                 <span onClick={likeHandler} >
-                <img src="/like.png" alt="like"/>
+                <img src="./like.png" alt="like"/>
                 </span>
                 {like}
             </div>

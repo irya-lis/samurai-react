@@ -5,17 +5,29 @@ import Description from "./Description/Description";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
-
     return (
         <div className={s.content}>
 
             <div>
                 <img
-                    src="/header.jpg"
+                    src="./header.jpg"
                     alt="image"/>
             </div>
-            <Ava profile={props.profile}/>
-            <Description profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+            <Ava
+                savePhoto={props.savePhoto}
+                isOwner={props.isOwner}
+                profile={props.profile}
+            />
+            <Description
+                profile={props.profile}
+                saveProfile={props.saveProfile}
+                status={props.status}
+                updateStatus={props.updateStatus}
+                isOwner={props.isOwner}
+                savePhoto={props.savePhoto}
+
+
+            />
             <MyPostsContainer profile={props.profile}/>
         </div>
     )
