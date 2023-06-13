@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import s from "./Description.module.css"
-import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
 import ProfileData from "./ProfileData";
 import Preloader from "../../common/Preloader/Preloader";
@@ -21,7 +20,6 @@ const Description = ({status, updateStatus, isOwner, saveProfile, ...props}) => 
     }
     return (
         <div className={s.description}>
-            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             {editMode
                 ? <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
                 : <ProfileData goToEditMode={() => {

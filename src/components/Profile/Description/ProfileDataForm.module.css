@@ -1,9 +1,10 @@
 .descriptionUser{
-    color: yellow;
+    color: #c0c0e3;
     padding-left: 50px;
-    padding-top: 10px;
+    padding-top: 50px;
     padding-bottom: 50px;
 }
+
 
 .login {
     padding-left: 15px;

@@ -14,16 +14,19 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
-import { lazy } from 'react';
+import {lazy} from 'react';
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
-const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
-
+// const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
+// const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
 
 
 class App extends React.Component {
     componentDidMount() {
         this.props.initializeApp();
+
+
     }
 
     render() {
@@ -32,35 +35,31 @@ class App extends React.Component {
             return <Preloader/>
         }
         return (
-            <Suspense fallback={<div><Preloader /></div>}>
-
-            <div className="app-wrapper">
-                <HeaderContainer/>
-                <Navbar/>
-                <div className="wrapper-content">
-                    <Routes>
-                        <Route path="/login" element={<Login/>}/>
-                        <Route path="/profile" element={<ProfileContainer isMain={true}/>}/>
-                        <Route path="/profile/:userId" element={<ProfileContainer/>}/>
-                        <Route path="/dialogs/*" element={<DialogsContainer/>}/>
-                        <Route path="/news" element={<News/>}/>
-                        <Route path="/music" element={<Music/>}/>
-                        <Route path="/settings" element={<Settings/>}/>
-                        <Route path="/friends" element={<Friends/>}/>
-                        <Route path="/users" element={<UsersContainer/>}/>
-                    </Routes>
+            <Suspense fallback={<div><Preloader/></div>}>
+                <div className="app-wrapper">
+                    <HeaderContainer/>
+                    <Navbar/>
+                    <div className="wrapper-content">
+                        <Routes>
+                            <Route path="/login" element={<Login/>}/>
+                            <Route path="/profile" element={<ProfileContainer isMain={true}/>}/>
+                            <Route path="/profile/:userId?" element={<ProfileContainer/>}/>
+                            <Route path="/dialogs/*" element={<DialogsContainer/>}/>
+                            <Route path="/news" element={<News/>}/>
+                            <Route path="/music" element={<Music/>}/>
+                            <Route path="/settings" element={<Settings/>}/>
+                            <Route path="/friends" element={<Friends/>}/>
+                            <Route path="/users" element={<UsersContainer/>}/>
+                        </Routes>
+                    </div>
                 </div>
-            </div>
             </Suspense>
-
-
         );
     }
 }
 
 function withRouter(Children) {
     return (props) => {
-
         const match = {params: useParams()};
         return <Children {...props} match={match}/>
     }
