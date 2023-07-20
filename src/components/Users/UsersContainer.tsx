@@ -3,9 +3,8 @@ import s from "./Users.module.css"
 import {connect} from "react-redux";
 import {
     follow,
-    setCurrentPage,
-    toggleIsFetching,
-    unfollow, toggleIsFollowingProgress, requestUsers,
+    unfollow,
+    requestUsers,
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
@@ -18,16 +17,39 @@ import {
     getPageSize,
     getTotalUsersCount,
 } from "../../redux/users-selectors";
+import {UserType} from "../../types/types";
+import {AppStateType} from "../../redux/redux-store";
 
 
-class UsersContainer extends React.Component {
+type MapStatePropsType = {
+    currentPage: number
+    pageSize: number
+    isFetching: boolean
+    totalUsersCount: number
+    users: Array<UserType>
+}
+
+
+type MapDispatchPropsType = {
+    follow: () => void
+    unfollow: () => void
+    getUsers: (currentPage: number, pageSize: number) => void
+    setCurrentPage: () => void,
+    followingInProgress: number
+}
+
+
+type PropsType = MapStatePropsType & MapDispatchPropsType;
+
+class UsersContainer extends React.Component<PropsType, any> {
 
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        const {pageSize} = this.props;
+        this.props.getUsers(pageNumber, pageSize);
     }
 
     render() {
@@ -48,8 +70,7 @@ class UsersContainer extends React.Component {
     }
 }
 
-
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),
@@ -63,13 +84,10 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-    connect(mapStateToProps,
+    connect<MapStatePropsType, MapDispatchPropsType, AppStateType>(mapStateToProps,
         {
             follow,
             unfollow,
-            setCurrentPage,
-            toggleIsFetching,
-            toggleIsFollowingProgress,
             getUsers: requestUsers
         })
 )(UsersContainer);
